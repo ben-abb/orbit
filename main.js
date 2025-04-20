@@ -1,6 +1,7 @@
 //import * as THREE from 'three';
 //import $ from "jquery";
 import * as THREE from "https://unpkg.com/three@0.175.0/build/three.module.js";
+import $ from "https://code.jquery.com/jquery-3.6.0.min.js";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -88,6 +89,20 @@ var lineGeometry = new THREE.BufferGeometry();
 var lineMaterial = new THREE.LineBasicMaterial({color:0xd4d4d4});
 var line = new THREE.Line(lineGeometry,lineMaterial);
 scene.add(line);
+
+
+
+//fully chatgpt until 'here'. hopefully work?      
+let isAnimating = true;
+document.getElementById('toggle').addEventListener('click', toggleAnimation);
+
+function toggleAnimation() {
+  isAnimating = !isAnimating;
+  if (isAnimating) animate();
+}
+      
+//here
+
 
 
 function animate(){
@@ -440,13 +455,3 @@ $(document).ready(function() {
 });
       
       
-//fully chatgpt until 'here'. hopefully work?      
-let isAnimating = true;
-document.getElementById('toggle').addEventListener('click', toggleAnimation);
-
-function toggleAnimation() {
-  isAnimating = !isAnimating;
-  if (isAnimating) animate();
-}
-      
-//here
